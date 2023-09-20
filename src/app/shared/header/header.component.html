@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>E Commerce</span>
+  <span class="example-spacer"></span>
+
+  <div class="col-4">
+    <input type="text" placeholder="search" class="form-control" #searchInput />
+  </div>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+    (click)="onSearch()"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>
