@@ -1,0 +1,24 @@
+.category{
+    
+    min-height: 30vh;
+    /* min-width: 30vh; */
+    border: 1px solid rgb(238, 237, 237);
+    display: flex;
+    justify-content: center;
+    flex-direction: row; 
+    cursor: pointer;
+}
+.category:hover{
+  border-bottom:1px solid red; 
+  /* box-shadow: 2px 2px 2px rgb(187, 187, 187); */
+  transform: scale(1.0001);
+  color: rgb(255, 10, 10);
+}
+img{
+  max-height: 120px;
+    max-width: 150px;
+    min-height: 120px; 
+}
+.category img:hover{
+  transform: scale(1.1);
+}

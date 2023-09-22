@@ -1,0 +1,13 @@
+/* Custom class for a 120-pixel margin */
+.custom-margin {
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 968px) {
+  .custom-margin {
+    margin: 20px;
+    /* Adjust this value for smaller screens */
+  }
+}

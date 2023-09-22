@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "smartphones",
+      "image": "https://shorturl.at/efjF1"
+    },
+    {
+      "id": 2,
+      "name": "laptops",
+      "image": "https://shorturl.at/gsuJX"
+    },
+    {
+      "id": 1,
+      "name": "fragrances",
+      "image": "https://shorturl.at/ADGIN"
+    },
+    {
+      "id": 1,
+      "name": "skincare",
+      "image": "https://shorturl.at/yBPR0"
+    },
+    {
+      "id": 1,
+      "name": "groceries",
+      "image": "https://shorturl.at/brIQW"
+    },
+    {
+      "id": 1,
+      "name": "home-decoration",
+      "image": "https://shorturl.at/acBO3"
+    },
+    {
+      "id": 1,
+      "name": "furniture",
+      "image": "https://shorturl.at/pQRV3"
+    },
+    {
+      "id": 1,
+      "name": "women-dresses",
+      "image": "https://shorturl.at/sNOQ5"
+    },
+    {
+      "id": 1,
+      "name": "mens-shirts",
+      "image": "https://shorturl.at/zORT5"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "mens-shirts",
+      "image": "https://shorturl.at/zORT5"
+    }
+  ]
+  
+  
+}
