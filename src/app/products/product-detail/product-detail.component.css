@@ -1,0 +1,28 @@
+.disabled-button {
+  color: gray; 
+}
+
+
+.product-image{
+  margin-left: 3rem;
+  margin-top: 1rem;
+  border: 5px solid rgb(165, 165, 165);
+  height: 30em;
+ max-width: 30em;
+  background-color: rgb(245, 242, 242);
+}
+
+@media (max-width: 768px) {
+  .product-image {
+    height: 20em;
+    width: 20em;
+    margin-left: 2px;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width:800px) {
+  .product-detail{
+   margin-left: 2rem;
+  }
+}

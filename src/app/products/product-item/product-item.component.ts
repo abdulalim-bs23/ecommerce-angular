@@ -10,5 +10,7 @@ export class ProductItemComponent {
   @Input() product: any = null;
 
   isHovered: boolean = false;
-  onProductClick = () => {};
+  onProductClick = () => {
+    alert('Product');
+  };
 }

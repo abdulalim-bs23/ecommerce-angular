@@ -8,14 +8,15 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PopularProductComponent } from './popular-product/popular-product.component'; 
-import { MatIconModule } from '@angular/material/icon'; 
-import {ProductRatingComponent} from './product-rating/product-rating.component';
+import { PopularProductComponent } from './popular-product/popular-product.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ProductRatingComponent } from './product-rating/product-rating.component';
 import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
-  { path: 'product-list', component: ProductDetailComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'product', component: ProductDetailComponent },
 ];
 
 @NgModule({

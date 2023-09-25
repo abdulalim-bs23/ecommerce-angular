@@ -1,1 +1,146 @@
-<p>product-detail works!</p>
+<div style="min-height: 180vh; background-color: #ffff">
+  <div class="row mt-3">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div style="margin: 15px">
+        <img
+          class="product-image"
+          src="../../../assets/images/laptop.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 ">
+      <div class="mt-4 product-detail">
+        <p class="mat-headline-5">Product Name</p>
+        <p class="mat-body-1">
+          <span style="color: dimgrey">Brand: </span>
+          <span style="color: cornflowerblue">Lenovo</span>
+        </p>
+        <p class="mat-body-1">
+          <span style="color: dimgrey">Category: </span>
+          <span style="color: cornflowerblue">Electronics</span>
+        </p>
+        <p class="mat-headline-6" style="color: red">৳ {{ updatedPrice }}</p>
+        <p style="display: flex">
+          <span>
+            <mat-icon style="color: green">check_circle</mat-icon>
+          </span>
+          <span style="margin-left: 3px; margin-top: 2px; color: green"
+            >Available in Store</span
+          >
+        </p>
+        <div>
+          <app-product-rating [rating]="5"></app-product-rating>
+        </div>
+        <div class="row">
+          <div class="col-6" style="display: flex">
+            <span class="mat-body-1" style="margin-top: 10px">Quantity:</span>
+            <span style="margin-left: 5px"
+              ><button
+                mat-icon-button
+                color="warn"
+                (click)="addQuantity()"
+                [disabled]="quantity >= 10"
+                [ngClass]="{ 'disabled-button': quantity >= 5 }"
+              >
+                <mat-icon>add</mat-icon>
+              </button></span
+            >
+            <span
+              class="mat-body-1"
+              style="margin-top: 12px; margin-left: 8px"
+              >{{ quantity }}</span
+            >
+            <span style="margin-left: 10px"
+              ><button
+                mat-icon-button
+                color="warn"
+                (click)="removeQuantity()"
+                [disabled]="quantity < 2"
+                [ngClass]="{ 'disabled-button': quantity < 2 }"
+              >
+                <mat-icon>remove</mat-icon>
+              </button></span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-lg-5" style="display: flex">
+            <button
+              mat-raised-button
+              color="warn"
+              style="min-width: 15em; height: 3rem"
+            >
+              Buy Now
+            </button>
+            
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-6">
+            <button
+              mat-raised-button
+              color="primary"
+              style="min-width: 15em; height: 3rem;"
+              (click)="addToCart()"
+            >
+              <span style="display: flex">
+                <span><mat-icon>shopping_cart</mat-icon></span>
+                <span style="margin-top: 5px; margin-left: 5px"
+                  >Add to Cart</span
+                >
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div
+      class="col-12"
+      style="display: flex; justify-content: center; flex-direction: row"
+    >
+      <div
+        style="
+          height: 1px;
+          width: 50rem;
+          background-color: rgb(105, 73, 134);
+          margin-top: 3rem;
+        "
+      ></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-11 mt-4" style="margin-left: 20px">
+      <div><p class="mat-headline-5">Product Description</p></div>
+      <div>
+        <p class="mat-body-1">
+          In today's rapidly evolving digital landscape, technology plays an
+          integral role in our daily lives. From the sleek and portable laptop
+          on which we work, to the powerful smartphone that keeps us connected,
+          technology surrounds us at every turn. The convenience of laptops,
+          with their compact designs and multitasking capabilities, has
+          revolutionized the way we work, learn, and communicate. These portable
+          powerhouses boast impressive processors, ample memory, and high-speed
+          storage, enabling us to tackle complex tasks with ease. Whether it's
+          word processing, graphic design, programming, or gaming, laptops offer
+          a versatile platform to unleash our creativity and productivity.
+          Beyond work and productivity, laptops have become gateways to the
+          digital world. They provide access to a wealth of information,
+          entertainment, and social networks, all at our fingertips. We shop
+          online, stream movies, connect with friends, and explore the far
+          reaches of the internet, all through these versatile devices.
+          Moreover, laptops have adapted to meet the demands of different
+          industries, from content creation to gaming, offering specialized
+          features and performance enhancements. As we navigate this
+          technology-driven era, laptops continue to evolve, pushing the
+          boundaries of innovation. With advancements in design, performance,
+          and connectivity, they remain essential tools for both professionals
+          and enthusiasts alike. In a world where change is constant, laptops
+          remain steadfast companions, empowering us to achieve our goals and
+          stay connected in an ever-connected world.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
