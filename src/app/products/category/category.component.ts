@@ -14,12 +14,11 @@ export class CategoryComponent {
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe((categories) => {
-      console.log(categories);
       this.categories = categories;
     });
   }
 
   onCategory() {
-    alert('hello')
+    alert('hello');
   }
 }

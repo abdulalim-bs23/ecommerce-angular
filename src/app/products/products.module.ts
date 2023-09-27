@@ -15,8 +15,17 @@ import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
-  { path: 'product-list', component: ProductListComponent },
-  { path: 'product', component: ProductDetailComponent },
+  // {
+  //   path: 'products',
+  //   component: ProductListComponent,
+  //   children: [
+  //     {
+  //       path: ':product-name',
+  //       component: ProductDetailComponent,
+  //     },
+  //   ],
+  // },
+  { path: 'products/:name', component: ProductDetailComponent },
 ];
 
 @NgModule({

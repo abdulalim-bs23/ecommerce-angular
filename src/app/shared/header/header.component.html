@@ -1,28 +1,35 @@
 <mat-toolbar color="primary" style="height: 5rem">
-  <button
+  <!-- <button
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
   >
     <mat-icon>menu</mat-icon>
-  </button>
-  <span>E Commerce</span>
+  </button> -->
+
+  <div class="brand">
+    <a class="navbar-brand" routerLink="/">E commerce</a>
+  </div>
   <span class="example-spacer"></span>
 
-  <div class="col-4">
+  <div class="col-md-2 col-sm-4">
     <input type="text" placeholder="search" class="form-control" #searchInput />
   </div>
   <button
     mat-icon-button
-    class="example-icon favorite-icon"
+    class="example-icon favorite-icon search"
     aria-label="Example icon-button with heart icon"
     (click)="onSearch()"
+     
   >
-    <mat-icon>search</mat-icon>
+    <mat-icon style="margin-right: 2rem; cursor: pointer; font-size: 2rem;">search</mat-icon>
   </button>
 
- 
-  <mat-icon [matBadge]="noOfProduct" matBadgeColor="accent" style="margin-right: 2rem; cursor: pointer;" (click)="onCart()"
+  <mat-icon
+    [matBadge]="noOfProduct"
+    matBadgeColor="accent"
+    class="cart"
+    (click)="onCart()"
     >shopping_cart</mat-icon
   >
 </mat-toolbar>

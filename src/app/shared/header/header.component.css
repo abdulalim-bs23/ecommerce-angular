@@ -2,13 +2,25 @@
   flex: 1 1 auto;
 }
 
-.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
-  right: -3px !important;
+@media (min-width: 768px) {
+  .search{
+    margin-right: 5rem !important;
+  }
 }
-.mat-badge-medium.mat-badge-after .mat-badge-content {
-  right: -11px;
+@media (min-width: 768px) {
+  .cart{
+    margin-right: 2rem;
+      cursor: pointer;
+      font-size: 2rem;
+  }
 }
-.mat-badge-medium.mat-badge-above .mat-badge-content {
-  top: -5px !important;
+@media (min-width: 768px) {
+  .brand{
+    margin-left: 3rem;
+  }
 }
- 
+@media (max-width: 768px) {
+.brand{
+  font-size: small;
+}
+}

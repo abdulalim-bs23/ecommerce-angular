@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from './category/category.model';
 import { Observable, Subject } from 'rxjs';
+import { IProduct, Product } from './product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +9,11 @@ import { Observable, Subject } from 'rxjs';
 export class ProductService {
   urlLocal: string = 'http://localhost:3000';
   urlDummyJson: string = 'https://dummyjson.com/';
+
+  product = new Subject<Product | undefined>();
+  product$ = this.product.asObservable();
+
+  productData: any ;
 
   constructor(private http: HttpClient) {}
 

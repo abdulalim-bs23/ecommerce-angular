@@ -1,6 +1,6 @@
 <div class="card mb-3 custom-card clickable-div" (click)="onProductClick()">
   <img
-    [src]="product?.images[0]"
+    [src]="product!.images[0]"
     class="card-img-top"
     [alt]="product?.title"
     style="max-height: 150px"
@@ -9,18 +9,18 @@
     <h5 class="mat-h4">{{ product?.title }}</h5>
     <div style="display: flex; justify-content: space-between">
       <div>
-        <p style="color: red">৳ {{ product.price }}</p>
+        <p style="color: red">৳ {{ product?.price }}</p>
       </div>
       <div>
-        <p *ngIf="product.stock > 0">
-          <span [ngStyle]="{ color: product.stock > 0 ? 'green' : 'black' }">
+        <p>
+          <span [ngStyle]="{ color: product?.stock! > 0 ? 'green' : 'black' }">
             Available in Stock </span
-          >({{ product.stock }})
+          >({{ product?.stock }})
         </p>
       </div>
     </div>
     <div style="text-align: center">
-      <app-product-rating [rating]="product.rating"></app-product-rating>
+      <app-product-rating [rating]="product?.rating!"></app-product-rating>
     </div>
     <!-- <div
       class="row"

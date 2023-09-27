@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
+import { Product } from '../product.model';
 
 @Component({
   selector: 'app-product-item',
@@ -7,10 +9,14 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent {
-  @Input() product: any = null;
+  @Input() product: Product | undefined;
 
-  isHovered: boolean = false;
+  constructor(private router: Router, private productService: ProductService) {}
+
   onProductClick = () => {
-    alert('Product');
+    //this.productService.testData.next('Product item test');
+    this.productService.productData = this.product;
+    this.productService.product.next(this.product);
+    this.router.navigate(['products', this.product?.title]);
   };
 }
