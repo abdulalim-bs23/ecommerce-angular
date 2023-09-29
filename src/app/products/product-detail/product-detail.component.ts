@@ -2,7 +2,8 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedService } from 'src/app/shared/shared.service';
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -21,7 +22,9 @@ export class ProductDetailComponent {
   constructor(
     private sharedService: SharedService,
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.productService.product$.subscribe((product) => {
@@ -57,8 +60,13 @@ export class ProductDetailComponent {
     this.sharedService.addToCart.next(++this.productAddToCart);
   }
   onBuyNow() {
-    this.sharedService.buyNow.next(true);
-  };
+    const user = localStorage.getItem('userData');
+    if (!!user) {
+      this.router.navigate(['/shipping']);
+    } else {
+      this.sharedService.buyNow.next(true);
+    }
+  }
   onImageClick(event: any) {
     this.productLargeImage = event.target.src;
   }

@@ -1,1 +1,140 @@
-<p>shipping works!</p>
+<div style="min-height: 80rem; margin-top: 3rem">
+  <div class="card">
+    <div class="card-header">
+      <p class="mat-headline-6">Shipping Address</p>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <form
+            class="justify-content-center"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+          >
+            <div class="form-group">
+              <label for="recipeName">Name</label>
+              <input
+                type="text"
+                formControlName="recipeName"
+                class="form-control"
+                required
+              />
+              <!-- <div
+                *ngIf="
+                  form.get('recipeName')?.hasError('required') &&
+                  (form.get('recipeName')?.dirty ||
+                    form.get('recipeName')?.touched)
+                "
+                class="alert alert-danger"
+              >
+                Name is required.
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipeName">Phone</label>
+                  <input
+                    type="text"
+                    formControlName="recipeName"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipeName">Email</label>
+                  <input
+                    type="text"
+                    formControlName="recipeName"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipeName">Country</label>
+                  <select
+                    class="form-select"
+                    (change)="onCountryChange($event)"
+                  >
+                    <option value="0" selected>Select a Country</option>
+                    <option
+                      *ngFor="let country of countries"
+                      [value]="country.code"
+                    >
+                      {{ country.country }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipeName">Division</label>
+                  <select
+                    class="form-select"
+                    aria-label="multiple select example"
+                  >
+                    <option value="0" selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipeName">District</label>
+                  <select
+                    class="form-select"
+                    aria-label="multiple select example"
+                  >
+                    <option value="0" selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipeName">Area</label>
+                  <select
+                    class="form-select"
+                    aria-label="multiple select example"
+                  >
+                    <option value="0" selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="description">Address</label>
+              <textarea
+                id="description"
+                formControlName="description"
+                class="form-control"
+                rows="4"
+              ></textarea>
+            </div>
+            <br />
+            <div style="float: right; margin-right: 3%">
+              <button type="submit" mat-raised-button color="primary">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

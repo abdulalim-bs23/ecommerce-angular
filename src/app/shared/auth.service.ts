@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs'; 
+import { Observable, Subject, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../users/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private key = 'AIzaSyCpc8w-gr5iM80jfllBpM2mTPFVcb7g6EQ';
-  private baseUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:';
+  baseUrl = environment.authUrl;
+  key = environment.apiKey;
 
   user = new Subject<User>();
   expirationTimer: any;
@@ -42,6 +43,7 @@ export class AuthService {
       password: password,
       returnSecureToken: true,
     };
+    console.log(url);
     return this.http.post<AuthResponse>(url, payLoad).pipe(
       tap((response: AuthResponse) => {
         this.handleAuthentication(

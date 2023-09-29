@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { MaterialComponentsModule } from '../shared/material-components.module';
 
 const routes: Routes = [
   {
@@ -17,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CartComponent, ShippingComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), MaterialComponentsModule],
   exports: [RouterModule],
 })
 export class CheckoutModule {}

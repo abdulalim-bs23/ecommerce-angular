@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'; 
 import { ProductItemComponent } from '../products/product-item/product-item.component';
 import { ProductDetailComponent } from '../products/product-detail/product-detail.component';
 import { ProductListComponent } from '../products/product-list/product-list.component';
@@ -8,11 +7,10 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PopularProductComponent } from './popular-product/popular-product.component';
-import { MatIconModule } from '@angular/material/icon';
-import { ProductRatingComponent } from './product-rating/product-rating.component';
-import { MatButtonModule } from '@angular/material/button';
+import { PopularProductComponent } from './popular-product/popular-product.component'; 
+import { ProductRatingComponent } from './product-rating/product-rating.component'; 
 import { SharedModule } from '../shared/shared.module';
+import { MaterialComponentsModule } from '../shared/material-components.module';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -40,13 +38,12 @@ const routes: Routes = [
     ProductRatingComponent,
   ],
   imports: [
-    CommonModule,
+     
     RouterModule.forChild(routes),
     NgbCarouselModule,
     HttpClientModule,
-    MatIconModule,
-    MatButtonModule,
-    SharedModule
+    SharedModule,
+    MaterialComponentsModule
   ],
   exports: [RouterModule],
 })
