@@ -15,9 +15,8 @@ export class ProductDetailComponent {
   updatedPrice: number = 150;
   productAddToCart: number = 0;
   product: Product | undefined;
-
   productName: string = '';
-  productTitle: string = '';
+  productLargeImage: string | undefined = '';
 
   constructor(
     private sharedService: SharedService,
@@ -39,7 +38,7 @@ export class ProductDetailComponent {
     //   console.log(this.productTitle);
     // });
     this.product = this.productService.productData;
-    console.log(this.product);
+    this.productLargeImage = this.product?.images[0];
   }
   addQuantity() {
     if (this.quantity < 10) {
@@ -47,7 +46,6 @@ export class ProductDetailComponent {
       this.updatedPrice = this.price * this.quantity;
     }
   }
-
   removeQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
@@ -57,5 +55,11 @@ export class ProductDetailComponent {
   addToCart() {
     console.log(this.productAddToCart);
     this.sharedService.addToCart.next(++this.productAddToCart);
+  }
+  onBuyNow() {
+    this.sharedService.buyNow.next(true);
+  };
+  onImageClick(event: any) {
+    this.productLargeImage = event.target.src;
   }
 }

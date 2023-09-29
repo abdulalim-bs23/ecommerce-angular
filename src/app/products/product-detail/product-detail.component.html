@@ -1,11 +1,16 @@
 <div style="min-height: 180vh; background-color: #ffff">
   <div class="row mt-3">
     <div class="col-lg-6 col-md-6 col-sm-12">
-      <div style="margin: 15px">
+      <div>
+        <img class="product-image" src="{{ productLargeImage }}" alt="" />
+      </div>
+      <div class="small-product-image-margin-left">
         <img
-          class="product-image"
-          src="../../../assets/images/laptop.png"
-          alt=""
+          *ngFor="let image of product!.images"
+          (click)="onImageClick($event)"
+          class="small-images"
+          src="{{ image }}"
+          alt="{{ product!.title }}"
         />
       </div>
     </div>
@@ -27,7 +32,7 @@
           </span>
           <span style="margin-left: 3px; margin-top: 2px; color: green"
             >Available in Store
-            <span style="color:#383838 ;"> ({{ product?.stock }})</span>
+            <span style="color: #383838"> ({{ product?.stock }})</span>
           </span>
         </p>
         <div>
@@ -71,6 +76,7 @@
               mat-raised-button
               color="warn"
               style="min-width: 15em; height: 3rem"
+              (click)="onBuyNow()"
             >
               Buy Now
             </button>
@@ -90,6 +96,7 @@
               </span>
             </button>
           </div>
+          <app-auth></app-auth>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import { PopularProductComponent } from './popular-product/popular-product.compo
 import { MatIconModule } from '@angular/material/icon';
 import { ProductRatingComponent } from './product-rating/product-rating.component';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
     HttpClientModule,
     MatIconModule,
     MatButtonModule,
+    SharedModule
   ],
   exports: [RouterModule],
 })

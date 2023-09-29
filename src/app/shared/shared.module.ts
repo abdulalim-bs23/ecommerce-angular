@@ -6,10 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router'; 
+import { AuthComponent } from './auth/auth.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, AuthComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -17,7 +19,9 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatBadgeModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, AuthComponent],
 })
 export class SharedModule {}

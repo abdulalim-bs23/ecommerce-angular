@@ -6,5 +6,6 @@ import { Subject } from 'rxjs';
 })
 export class SharedService {
   addToCart = new Subject<number>();
+  buyNow = new Subject<boolean>();
   constructor() {}
 }

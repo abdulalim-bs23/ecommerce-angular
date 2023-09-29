@@ -1,0 +1,20 @@
+
+.custom-modal-dialog {
+  max-width: 50%;
+  height: 50rem;
+  width: 40rem;
+  margin: 1rem auto;
+  top: 5rem;
+}
+
+.mat-h4,
+.mat-body-1,
+.mat-typography .mat-h4,
+.mat-typography .mat-body-1,
+.mat-typography h4{
+  margin-bottom: 3px !important;
+}
+.disabled-button {
+  color: rgb(255, 255, 255);
+  background-color: gray;
+}
