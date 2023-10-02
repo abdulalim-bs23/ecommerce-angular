@@ -14,3 +14,11 @@
     margin: 1rem !important ;
   }
 }
+.disabled-button {
+  color: rgb(255, 251, 251);
+  background-color: rgb(114, 114, 114);
+}
+
+.mat-h2, .mat-headline-6, .mat-typography .mat-h2, .mat-typography .mat-headline-6, .mat-typography h2{
+ margin: 0 0 3px !important
+}

@@ -20,7 +20,7 @@ export class SharedService {
       const params = new HttpParams({ fromObject: queryParams });
       return params;
     }
-    return null;
+    return '';
   };
   
 }

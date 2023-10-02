@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatBadgeModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class MaterialComponentsModule {}

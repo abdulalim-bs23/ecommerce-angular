@@ -8,40 +8,37 @@ import { SharedService } from 'src/app/shared/shared.service';
 })
 export class ShippingService {
   baseUrl = environment.apiUrl;
-  apiKey = environment.apiKey;
 
   constructor(private http: HttpClient, private sharedService: SharedService) {}
 
   getCountries(): Observable<any> {
-    const url = `${this.baseUrl}countries.json?${
-      this.sharedService.getTokenParam() == null
-        ? ''
-        : this.sharedService.getTokenParam()
-    }`;
+    const url = `${
+      this.baseUrl
+    }countries.json?${this.sharedService.getTokenParam()}`;
     return this.http.get<any>(url);
   }
   getDivisions(): Observable<any> {
-    const url = `${this.baseUrl}divisions.json?${
-      this.sharedService.getTokenParam() == null
-        ? ''
-        : this.sharedService.getTokenParam()
-    }`;
+    const url = `${
+      this.baseUrl
+    }divisions.json?${this.sharedService.getTokenParam()}`;
     return this.http.get<any>(url);
   }
-  getDistricts(): Observable<any> {
-    const url = `${this.baseUrl}districts.json?${
-      this.sharedService.getTokenParam() == null
-        ? ''
-        : this.sharedService.getTokenParam()
-    }`;
+  getDistricts(divisionId: number): Observable<any> {
+    const url = `${
+      this.baseUrl
+    }districts.json?orderBy="division_id"&equalTo="${divisionId}"&${this.sharedService.getTokenParam()}`;
     return this.http.get<any>(url);
   }
-  getUpazilas(): Observable<any> {
-    const url = `${this.baseUrl}upazilas.json?${
-      this.sharedService.getTokenParam() == null
-        ? ''
-        : this.sharedService.getTokenParam()
-    }`;
+  getUpazilas(districtId: number): Observable<any> {
+    const url = `${
+      this.baseUrl
+    }upazilas.json?orderBy="district_id"&equalTo="${districtId}"&${this.sharedService.getTokenParam()}`;
+    return this.http.get<any>(url);
+  }
+  getPaymentMethods(): Observable<any> {
+    const url = `${
+      this.baseUrl
+    }payment_methods.json?${this.sharedService.getTokenParam()}`;
     return this.http.get<any>(url);
   }
 }
