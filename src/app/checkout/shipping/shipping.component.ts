@@ -18,7 +18,7 @@ export class ShippingComponent {
   payment_methods: any[] | undefined;
   selectedCountry: string = '0';
   isChecked: boolean = false;
-  selectedOption: number | undefined;
+  selectedOption: string | undefined;
   constructor(
     private fb: FormBuilder,
     private shippingService: ShippingService
@@ -40,6 +40,7 @@ export class ShippingComponent {
       district: [''],
       upazila: ['Select a Area'],
       description: [''],
+      selectedOption: [''],
     });
   }
 
@@ -76,6 +77,7 @@ export class ShippingComponent {
   }
 
   onSubmit() {
+    console.log('submit');
     if (this.shippingAddressForm.valid) {
       const name = this.shippingAddressForm.get('name')?.value;
       const phone = this.shippingAddressForm.get('phone')?.value;
@@ -90,8 +92,9 @@ export class ShippingComponent {
     }
   }
 
-  selectRadio(optionId: number) {
+  selectRadio(optionId: string){
     this.selectedOption = optionId;
+    console.log(optionId);
   }
   placeOrderCondition(event: any) {
     this.isChecked = !this.isChecked;

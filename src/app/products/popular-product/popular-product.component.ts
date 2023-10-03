@@ -11,8 +11,8 @@ export class PopularProductComponent {
   constructor(private productService: ProductService) {}
   ngOnInit(): void {
     this.productService.getProducts().subscribe((response) => {
-      if (response && response.products) {
-        this.products = response.products;
+      if (response) {
+        this.products = response;
       }
     });
   }

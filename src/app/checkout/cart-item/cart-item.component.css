@@ -7,7 +7,7 @@
   text-decoration: underline;
 }
 
-.cart-item {
+ul>li {
 
   color: rgb(37, 37, 37) !important;
   padding-left: 2rem !important;
@@ -20,18 +20,18 @@
   width: 50%;
   height: 10rem;
   display: flex;
-  flex-direction: row !important;
-  justify-content: space-between !important;
+  flex-direction: column !important;
+  justify-content: center !important;
   cursor: pointer;
 }
 
-/* .cart-item:hover {
+ul>li:hover {
   font-weight: 400 !important;
   border-radius: 10px;
   padding: 1%;
   border: 1px solid rgb(221, 221, 221) !important;
-  transform: translateY(2px);
-} */
+  transform: translateX(2px);
+}
 
 .avatar {
   width: 100px;

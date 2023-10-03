@@ -1,1 +1,55 @@
-<p>cart works!</p>
+<div class="card" style="margin-top: 2rem; min-height: 20rem">
+  <div class="card-body">
+    <div
+      class="row cart-item"
+      *ngFor="let productCart of productCarts; let i = index"
+    >
+      <div
+        class="col-md-8"
+        style="display: flex; flex-direction: row; justify-content: start"
+      >
+        <img class="avatar" src="{{ productCart.imageUrl }}" />
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 2rem;
+          "
+        >
+          <p class="mat-headline-5" style="font-size: 27px">
+            {{ productCart.name }}
+          </p>
+          <p class="mat-body-1">{{ productCart.email }}</p>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <button
+          type="button"
+          mat-icon-button
+          color="warn"
+          (click)="removeIngredient(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <!-- <div class="col-md-2">
+          <button
+            mat-raised-button
+            type="button"
+            color="primary"
+            (click)="addIngredient()"
+            style="background-color: teal"
+          >
+            <mat-icon>add</mat-icon> Ingredient
+          </button>
+        </div> -->
+      <!-- <div style="float: right; margin-right: 3%">
+          <button type="submit" mat-raised-button color="primary">
+            Submit
+          </button>
+        </div> -->
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MaterialComponentsModule } from '../shared/material-components.module';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [CartComponent, ShippingComponent],
+  declarations: [CartComponent, ShippingComponent, CartItemComponent],
   imports: [RouterModule.forChild(routes), MaterialComponentsModule],
   exports: [RouterModule],
 })

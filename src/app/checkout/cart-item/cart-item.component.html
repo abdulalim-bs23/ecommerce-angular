@@ -1,0 +1,23 @@
+  <ul>
+    <li *ngFor="let customer of customers">
+      <div
+        style="display: flex; flex-direction: row; justify-content: start"
+        (click)="onClick($event)"
+      >
+        <img class="avatar" src="{{ customer.imageUrl }}" />
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 2rem;
+          "
+        >
+          <p class="mat-headline-5" style="font-size: 27px">
+            {{ customer.name }}
+          </p>
+          <p class="mat-body-1">{{ customer.email }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
