@@ -1,0 +1,250 @@
+import * as React from "react";
+import { Dialog, DialogType, DialogFooter } from "@fluentui/react/lib/Dialog";
+import { DefaultButton, PrimaryButton } from "@fluentui/react/lib/Button";
+import { useId, useBoolean } from "@fluentui/react-hooks";
+import {
+  Dropdown,
+  FontIcon,
+  IDropdownOption,
+  IDropdownStyles,
+  Stack,
+  StackItem,
+  TextField,
+  initializeIcons,
+} from "@fluentui/react";
+
+const dialogStyles = { main: { minWidth: "5rem" } };
+
+const dialogContentProps = {
+  type: DialogType.normal,
+  title: "Type Item",
+  closeButtonAriaLabel: "Close",
+  subText: "",
+};
+
+const tblHeader = {
+  fontSize: "12px",
+  color: "black",
+  border: "1px solid black",
+  width: "7rem",
+  height: "2rem",
+};
+
+const tableStyles = {
+  width: "100%",
+  borderCollapse: "collapse",
+  border: "1px solid #000",
+};
+
+const cellStyles = {
+  border: "1px solid #000",
+  padding: "1px",
+  color: "black",
+  fontSize: "18px",
+};
+
+initializeIcons();
+
+const dropdownStyles: Partial<IDropdownStyles> = {
+  dropdown: { width: 300 },
+};
+
+const options: IDropdownOption[] = [
+  { key: "1", text: "Office Location" },
+  { key: "2", text: "Role" },
+];
+
+const childOptionsByParentId = {
+  "1": [{ id: 1, text: "Mohakhali" }],
+  "2": [
+    { id: 1, text: "Senior Software Engineer" },
+    { id: 2, text: "Software Engineer" },
+  ],
+};
+
+export const DialogBasic: React.FunctionComponent = () => {
+  const [hideDialog, { toggle: toggleHideDialog }] = useBoolean(true);
+  const labelId: string = useId("dialogLabel");
+  const subTextId: string = useId("subTextLabel");
+
+  const [selectedParent, setSelectedParent] = React.useState<
+    IDropdownOption | undefined
+  >(undefined);
+  const [childList, setChildList] = React.useState<IDropdownOption[]>([]);
+
+  const handleParentChange = (
+    event: React.FormEvent<HTMLDivElement>,
+    item?: IDropdownOption
+  ) => {
+    setSelectedParent(item);
+  };
+
+  const tableDataLoad = () => {
+    let item = selectedParent;
+    let childListForParent: any;
+
+    if (item) {
+      let selectedParentId = item.key as string;
+      switch (selectedParentId) {
+        case "1": {
+          childListForParent = childOptionsByParentId[1] || [];
+          break;
+        }
+        case "2": {
+          childListForParent = childOptionsByParentId[2] || [];
+          break;
+        }
+        default: {
+          selectedParentId = "1";
+        }
+      }
+      const childData = childListForParent.map((child: any) => ({
+        id: Number(child.key), // Convert the key to a number if needed
+        text: child.text,
+      }));
+      setTableData(childData);
+    } else {
+    }
+  };
+
+  const [textFieldValue, setTextFieldValue] = React.useState("");
+  const handleTextFieldChange = (event: any, newValue: any) => {
+    setTextFieldValue(newValue);
+  };
+
+  const [tableData, setTableData] = React.useState([{ id: 1, text: "row" }]);
+
+  const removeRow = (id: any) => {
+    const updatedData = tableData.filter((row) => row.id !== id);
+    setTableData(updatedData);
+  };
+
+  const handleSubmit = () => {
+    toggleHideDialog();
+    const newRow = {
+      id: Math.random(),
+      text: textFieldValue,
+    };
+    setTableData([...tableData, newRow]);
+
+    setTextFieldValue("");
+  };
+
+  const modalProps = React.useMemo(
+    () => ({
+      titleAriaId: labelId,
+      subtitleAriaId: subTextId,
+      isBlocking: false,
+      styles: dialogStyles,
+    }),
+    [labelId, subTextId]
+  );
+  return (
+    <div
+      style={{
+        backgroundColor: "white",
+        width: "50rem",
+        height: "30rem",
+        paddingLeft: "3rem",
+      }}
+    >
+      <Stack horizontal style={{ paddingTop: "22px", paddingLeft: "5px" }}>
+        <Dropdown
+          placeholder="Select an option"
+          label="Select a value"
+          options={options}
+          styles={dropdownStyles}
+          onChange={handleParentChange}
+        />
+
+        <PrimaryButton
+          style={{ marginTop: "35px", marginLeft: "5px" }}
+          onClick={tableDataLoad}
+          text="Load"
+        />
+      </Stack>
+
+      <div style={{ marginTop: "20px", marginLeft: "5px" }}>
+        <Stack horizontal>
+          <StackItem
+            style={{
+              minWidth: "33rem",
+              textAlign: "left",
+              paddingLeft: "10px",
+            }}
+          >
+            <h4>
+              {selectedParent?.text}{" "}
+              <span style={{ fontWeight: "500" }}> Information</span>
+            </h4>
+          </StackItem>
+          <StackItem>
+            <FontIcon
+              onClick={toggleHideDialog}
+              aria-label="delete"
+              iconName="add"
+              style={{
+                color: "green",
+                cursor: "pointer",
+                fontWeight: "900",
+                fontSize:'1.2rem',
+                marginLeft: "5px",
+                marginTop: "15px",
+              }}
+            />
+          </StackItem>
+        </Stack>
+
+        <table
+          style={{
+            marginTop: "10px",
+            width: "80%",
+            borderCollapse: "collapse",
+            border: "1px solid #000",
+          }}
+        >
+          <thead>
+            <tr>
+              <th style={cellStyles}>Label</th>
+              <th style={cellStyles}>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row) => (
+              <tr key={row.id}>
+                <td style={cellStyles}>{row.text}</td>
+                <td style={cellStyles}>
+                  <FontIcon
+                    onClick={() => removeRow(row.id)}
+                    aria-label="delete"
+                    iconName="delete"
+                    style={{ color: "red", cursor: "pointer" }}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <Dialog
+        hidden={hideDialog}
+        onDismiss={toggleHideDialog}
+        dialogContentProps={dialogContentProps}
+        modalProps={modalProps}
+      >
+        <TextField
+          name="dropdown value"
+          placeholder="Give a type value"
+          value={textFieldValue}
+          onChange={handleTextFieldChange}
+        />
+
+        <DialogFooter>
+          <PrimaryButton onClick={handleSubmit} text="Submit" />
+          <DefaultButton onClick={toggleHideDialog} text="Cancel" />
+        </DialogFooter>
+      </Dialog>
+    </div>
+  );
+};
